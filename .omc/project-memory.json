@@ -1,0 +1,152 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779253960380,
+  "projectRoot": "/Users/jungmin/Documents/Nest강의/nestjs",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "@nestjs/core",
+        "version": "11.0.1",
+        "category": "backend"
+      },
+      {
+        "name": "jest",
+        "version": "30.0.0",
+        "category": "testing"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npx tsc --noEmit -p tsconfig.json 2>&1 | head -30",
+    "testCommand": "npm test",
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run start",
+    "scripts": {
+      "build": "nest build",
+      "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+      "start": "nest start",
+      "start:dev": "nest start --watch",
+      "start:debug": "nest start --debug --watch",
+      "start:prod": "node dist/main",
+      "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:cov": "jest --coverage",
+      "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+      "test:e2e": "jest --config ./test/jest-e2e.json"
+    }
+  },
+  "conventions": {
+    "namingStyle": "camelCase/PascalCase",
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "src",
+      "test"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 13,
+      "lastAccessed": 1779253960373,
+      "keyFiles": [
+        "app.controller.d.ts",
+        "app.controller.js",
+        "app.controller.js.map",
+        "app.module.d.ts",
+        "app.module.js"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 5,
+      "lastAccessed": 1779253960376,
+      "keyFiles": [
+        "app.controller.spec.ts",
+        "app.controller.ts",
+        "app.module.ts",
+        "app.service.ts",
+        "main.ts"
+      ]
+    },
+    "test": {
+      "path": "test",
+      "purpose": "Test files",
+      "fileCount": 2,
+      "lastAccessed": 1779253960376,
+      "keyFiles": [
+        "app.e2e-spec.ts",
+        "jest-e2e.json"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": ".prettierrc",
+      "accessCount": 2,
+      "lastAccessed": 1779326143762,
+      "type": "file"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "accessCount": 2,
+      "lastAccessed": 1779326146520,
+      "type": "file"
+    },
+    {
+      "path": "src/boards/boards.service.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779327943799,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1779325823562,
+      "type": "file"
+    },
+    {
+      "path": "src/boards/boards.controller.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779327940565,
+      "type": "file"
+    },
+    {
+      "path": "src/boards/board.model.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779327944110,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

@@ -1,0 +1,26 @@
+{
+  // 파일을 저장할 때 코드를 자동으로 포맷팅합니다.
+  "editor.formatOnSave": true,
+  
+  // 기본 포맷터를 Prettier로 지정합니다.
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+  // 코드 저장 시 ESLint가 정정한 오류를 자동으로 고치도록(Fix) 설정합니다.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+
+  // TypeScript 및 JavaScript 파일에 대해 Prettier를 기본 포맷터로 고정합니다.
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // 파일 탐색기에서 NestJS 빌드 결과물(dist) 및 node_modules를 숨기거나 검색에서 제외하고 싶을 때 (선택 사항)
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  }
+}
