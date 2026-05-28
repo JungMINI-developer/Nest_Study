@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   UsePipes,
@@ -13,30 +14,30 @@ import { BoardsService } from './boards.service';
 import { BoardStatus } from './board-status.enum';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardsStatusValidationPipe } from './pipes/board-status-validation.pipe';
-import { Boards } from './board.entity';
+import { Board } from './board.entity';
 
 @Controller('boards')
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
   @Get()
-  getAllBoard(): Promise<Boards[]> {
+  getAllBoard(): Promise<Board[]> {
     return this.boardsService.getAllBoards();
   }
 
   @Post()
   @UsePipes(ValidationPipe)
-  createBoard(@Body() createBoardDto: CreateBoardDto): Promise<Boards> {
+  createBoard(@Body() createBoardDto: CreateBoardDto): Promise<Board> {
     return this.boardsService.createBoard(createBoardDto);
   }
 
   @Get(':id')
-  getBoardById(@Param('id') id: string): Promise<Boards> {
+  getBoardById(@Param('id') id: string): Promise<Board> {
     return this.boardsService.getBoardById(+id);
   }
 
   @Delete(':id')
-  deleteBoard(@Param('id') id: string): Promise<void> {
+  deleteBoard(@Param('id', ParseIntPipe) id: string): Promise<void> {
     return this.boardsService.deleteBoard(+id);
   }
 
@@ -44,7 +45,7 @@ export class BoardsController {
   updateBoardStatus(
     @Param('id') id: string,
     @Body('status', BoardsStatusValidationPipe) status: BoardStatus,
-  ): Promise<Boards> {
+  ): Promise<Board> {
     return this.boardsService.updateBoardStatus(+id, status);
   }
 }
