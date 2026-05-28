@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "strict": true,
+    // strict가 true여도 아래 옵션을 false로 주면 초기화 검사만 쏙 꺼집니다.
+    "strictPropertyInitialization": false,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
