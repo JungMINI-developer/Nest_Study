@@ -25,5 +25,6 @@ export class AuthController {
   @UseGuards(AuthGuard())
   authtest(@GetUSer() user: User) {
     console.log('user', user);
+    return user;
   }
 }
