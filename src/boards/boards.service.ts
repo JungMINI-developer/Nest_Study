@@ -23,7 +23,7 @@ export class BoardsService {
   async getBoardById(id: number, user: User): Promise<Board> {
     const found = await this.boardRepository.findOne({ where: { id, user: { id: user.id } } });
     if (!found) {
-      throw new NotFoundException(`Board with ID ${id} not found`);
+      throw new NotFoundException(`해당 유저가 생성한 게시물이 없습니다.`);
     }
     return found;
   }
