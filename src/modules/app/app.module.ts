@@ -4,13 +4,14 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TaskModule } from '../tasks/task.module';
+import { UserModule } from '../users/user.module';
 
 @Module({
   imports: [
     // 1. ConfigModule 설정: .env 파일을 로드
     ConfigModule.forRoot({
       isGlobal: true, //전역으로 ConfigService 사용 가능
-      envFilePath: `.env/${process.env.NODE_ENV || 'development'}.env`,
+      envFilePath: '.env',
     }),
 
     // 2. TypeOrmModule 비동기 설정: ConfigService의 환경 변수 주입
@@ -35,6 +36,7 @@ import { TaskModule } from '../tasks/task.module';
     }),
 
     TaskModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
