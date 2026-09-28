@@ -1,12 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+import { TaskEntity } from './entities/task.entity';
+
 import { CreateTaskDto, UpdateTaskDto } from './dto';
+import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class TaskService {
+  constructor(
+    @InjectRepository(TaskEntity)
+    private readonly taskRepository: Repository<TaskEntity>,
+  ) {}
+
   // 조회 - 전체
-  getTasks() {}
+  // DB의 모든 데이터를 배열 형태로 가져온다.
+  // SQL: SELECT * FROM tasks
+  async getTasks(): Promise<TaskEntity[]> {
+    // find()는 조건 없이 호출하면 전체 데이터를 조회한다.
+    return await this.taskRepository.find();
+  }
+
   // 조회 - 개별
-  getTask(taskId: number) {}
+  async getTask(taskId: number): Promise<TaskEntity> {
+    const task = await this.taskRepository.findOne({
+      where: {
+        id: taskId,
+      },
+    });
+
+    if (!task) {
+      throw new NotFoundException('해당ID에 해당하는 taks가 없습니다.');
+    }
+    return task;
+  }
 
   // 생성
   create(payload: CreateTaskDto) {
