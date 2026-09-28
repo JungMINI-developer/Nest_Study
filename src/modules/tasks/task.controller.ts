@@ -33,19 +33,19 @@ export class TaskController {
   // 생성
   @Post()
   @UsePipes(new ValidationPipe())
-  create(@Body() body: CreateTaskDto) {
-    this.taskService.create(body);
+  async create(@Body() body: CreateTaskDto) {
+    return await this.taskService.create(body);
   }
 
   // 수정
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() body: UpdateTaskDto) {
-    this.taskService.update(id, body);
+  async update(@Param('id', ParseIntPipe) id: number, @Body() body: UpdateTaskDto) {
+    return this.taskService.update(id, body);
   }
 
   //삭제
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
-    this.taskService.delete(id);
+  async delete(@Param('id', ParseIntPipe) id: number) {
+    return await this.taskService.delete(id);
   }
 }

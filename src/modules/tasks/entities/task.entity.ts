@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { CreateTaskDto } from '../dto';
 
 @Entity('tasks')
 export class TaskEntity {
@@ -15,5 +22,19 @@ export class TaskEntity {
   category: string;
 
   @Column()
-  thumnail: string;
+  thumbnail: string;
+
+  @CreateDateColumn({ name: 'create_at' })
+  createAt: Date;
+
+  @UpdateDateColumn({ name: 'update_at' })
+  updateAt: Date;
+
+  static of(payload: CreateTaskDto) {
+    const entity = new TaskEntity();
+
+    entity.title = payload.title;
+
+    return entity;
+  }
 }
